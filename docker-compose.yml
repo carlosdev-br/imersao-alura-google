@@ -1,0 +1,11 @@
+
+services:
+  app:
+    build: .
+    container_name: imersao-devops-app
+    ports:
+      - "8000:8000"  # Mapeia a porta 8000 do container para a porta 8000 do host
+    volumes:
+      - .:/app  # Sincroniza o diretório atual com o diretório /app no container (útil para desenvolvimento)
+    # environment:
+    #   - VARIAVEL=valor  # Defina variáveis de ambiente aqui, se necessário
