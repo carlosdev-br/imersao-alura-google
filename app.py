@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from database import engine, Base
 from routers.alunos import alunos_router
 from routers.cursos import cursos_router
@@ -15,6 +16,15 @@ app = FastAPI(
         Permite realizar diferentes operações em cada uma dessas entidades.
     """, 
     version="1.0.0",
+)
+
+# Adiciona o middleware de CORS após a criação do app
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permite qualquer origem. Para produção, especifique os domínios permitidos.
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 app.include_router(alunos_router, tags=["alunos"])

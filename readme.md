@@ -75,3 +75,8 @@ Este projeto é uma API desenvolvida com FastAPI para gerenciar alunos, cursos e
    gcloud run deploy --port=8000
    ```
 
+## atualizar imagem quando já publicado 1a vez
+   ```sh
+   gcloud run deploy api-imersao-alura-google --source . --region=southamerica-east1 --port=8000
+   ```
+
